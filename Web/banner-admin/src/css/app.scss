@@ -1,0 +1,768 @@
+// common
+@import "./common.scss";
+@import "./quasar.variables.scss";
+
+.q-pagination {
+  .q-btn {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.q-textarea {
+  .q-field__prefix {
+    align-items: start;
+    padding-top: 17px;
+  }
+}
+
+.app-wizard-next-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px;
+  gap: 8px;
+
+  width: 291px;
+  height: 46px;
+
+  /* Primary/500 */
+
+  background: #0C3176;
+  border-radius: 100px;
+}
+
+
+.app-verification-wizard-btn {
+  box-sizing: border-box;
+
+  margin-left: 56px;
+  padding: 10px 24px;
+  gap: 8px;
+
+  width: 96px;
+  height: 43px;
+
+  /* Gray/White */
+
+  background: #FFFFFF;
+  /* Primary/500 */
+
+  border: 2px solid #0C3176;
+  border-radius: 20px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+
+  /* Button/Button-lg */
+
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 700;
+  //font-size: 16px;
+  line-height: 23px;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+  color: #0C3176;
+}
+
+.app-verification-wizard-next-btn {
+  margin-left: 56px;
+  margin-right: 56px;
+  padding: 10px 24px;
+  gap: 8px;
+
+  width: 96px;
+  height: 43px;
+
+  /* Primary/500 */
+
+  background: #0C3176;
+  border-radius: 20px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 700;
+  //font-size: 16px;
+  line-height: 23px;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+
+  /* TextColor/White */
+
+  color: #FFFFFF;
+}
+
+.app-wizard-information-table {
+  margin-top: 24px;
+  width: 688px;
+  background: #FAFCFF;
+}
+.app-wizard-information-caption {
+  width: 688px;
+  height: 40px;
+
+  /* Backgrounds/Secondary */
+  background: #E9F1FF;
+  /* Content/Subtitle */
+
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  /* or 22px */
+
+  font-feature-settings: 'tnum' on, 'lnum' on;
+
+  /* Primary/500 */
+
+  color: #0C3176;
+}
+
+.app-wizard-information-content {
+  padding: 16px 92px 44px;
+}
+
+.app-main {
+  padding-top: 80px;
+  width: 487px;
+  height: 487px;
+}
+.logo {
+  padding: 37px 34px;
+}
+.content-background {
+  height: auto;
+  background: #0C3178;
+}
+.content-left {
+  width: 100%;
+  height: 768px;
+}
+
+
+.app-account-tabs {
+  padding-top: 12px;
+  padding-bottom: 100px;
+}
+
+.app-account-tab {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+
+  width: 235px;
+  height: 45px;
+
+  /* Primary/400 */
+  background: #3764AC;
+
+  /* Content/Title */
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 140%;
+  /* or 25px */
+
+  text-align: center;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+
+  /* TextColor/White */
+  color: #FFFFFF;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 1;
+}
+
+.app-account-tab-inverse {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+
+  width: 235px;
+  height: 45px;
+
+  /* Content/Title */
+
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 140%;
+  /* or 25px */
+
+  text-align: center;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+
+  /* TextColor/38% */
+  color: rgba(40, 40, 40, 0.38);
+
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 1;
+}
+
+.app-account-email-btn-inverse {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px;
+  gap: 8px;
+
+  width: 291px;
+  height: 46px;
+
+  /* Button/Button-lg */
+
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 23px;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+
+
+  /* TextColor/38% */
+
+  color: rgba(40, 40, 40, 0.38) !important;
+
+  /* Gray/100 */
+
+  background: #EDEDEE !important;
+  border-radius: 100px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.app-account-email-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px;
+  gap: 8px;
+
+  width: 291px;
+  height: 46px;
+
+  /* Button/Button-lg */
+
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 23px;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+
+  /* Primary/500 */
+  background: #0C3176;
+  border-radius: 100px;
+}
+
+
+.app-tab-item {
+  /* Tab-item */
+
+  box-sizing: border-box;
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+
+  width: 235px;
+  height: 45px;
+
+  /* Primary/500 */
+
+  border-bottom: 1px solid #0c3176;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 1;
+}
+.app-tab {
+  height: 25px;
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 140%;
+  font-feature-settings: "tnum" on, "lnum" on;
+  color: #0c3176;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.app-tab-inverse {
+  height: 25px;
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 140%;
+  font-feature-settings: "tnum" on, "lnum" on;
+  color: rgba(40, 40, 40, 0.38);
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.app-required {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  /* identical to box height, or 20px */
+  font-feature-settings: 'tnum' on, 'lnum' on;
+  /* Error/500 */
+  color: #F21E1E;
+}
+
+.app-primary-btn {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 24px;
+  gap: 8px;
+
+  /* Primary/500 */
+
+  background: #0C3176;
+  border-radius: 20px;
+
+  /* Button/Button-lg */
+
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 23px;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+
+  /* TextColor/White */
+
+  color: #FFFFFF;
+
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.app-savecancel-group{
+  background: rgba(255, 255, 255, 0.85);
+  border: 2px solid rgba(12, 49, 118, 0.1);
+}
+
+.c-primary-color-100 {
+  color: #CBE1F7;
+}
+.c-primary-color-200 {
+  color: #9AC1EF;
+}
+.c-primary-color-300 {
+  color: #6292D4;
+}
+.c-primary-color-400 {
+  color: #3764AC;
+}
+.c-primary-color-500 {
+  color: #0C3176;
+}
+.c-primary-color-600 {
+  color: #072565;
+}
+.c-primary-color-700 {
+  color: #051C55;
+}
+.c-primary-color-800 {
+  color: #021444;
+}
+.c-primary-color-900 {
+  color: #020E38;
+}
+
+.c-primary-bgcolor-100 {
+  background-color: #CBE1F7;
+}
+.c-primary-bgcolor-200 {
+  background-color: #9AC1EF;
+}
+.c-primary-bgcolor-300 {
+  background-color: #6292D4;
+}
+.c-primary-bgcolor-400 {
+  background-color: #3764AC;
+}
+.c-primary-bgcolor-500 {
+  background-color: #0C3176;
+}
+.c-primary-bgcolor-600 {
+  background-color: #072565;
+}
+.c-primary-bgcolor-700 {
+  background-color: #051C55;
+}
+.c-primary-bgcolor-800 {
+  background-color: #021444;
+}
+.c-primary-bgcolor-900 {
+  background-color: #020E38;
+}
+
+.c-backgrounds-secondary {
+  background: #E9F1FF;
+}
+
+.c-secondary-color-100 {
+  color: #C8FAF5;
+}
+.c-secondary-color-200 {
+  color: #93F6F2;
+}
+.c-secondary-color-300 {
+  color: #5BE0E5;
+}
+.c-secondary-color-400 {
+  color: #33BBCC;
+}
+.c-secondary-color-500 {
+  color: #008BAB;
+}
+.c-secondary-color-600 {
+  color: #006C93;
+}
+.c-secondary-color-700 {
+  color: #00517B;
+}
+.c-secondary-color-800 {
+  color: #003A63;
+}
+.c-secondary-color-900 {
+  color: #002A52;
+}
+
+.c-secondary-bgcolor-100 {
+  background: #C8FAF5;
+}
+.c-secondary-bgcolor-200 {
+  background: #93F6F2;
+}
+.c-secondary-bgcolor-300 {
+  background: #5BE0E5;
+}
+.c-secondary-bgcolor-400 {
+  background: #33BBCC;
+}
+.c-secondary-bgcolor-500 {
+  background: #008BAB;
+}
+.c-secondary-bgcolor-600 {
+  background: #006C93;
+}
+.c-secondary-bgcolor-700 {
+  background: #00517B;
+}
+.c-secondary-bgcolor-800 {
+  background: #003A63;
+}
+.c-secondary-bgcolor-900 {
+  background: #002A52;
+}
+
+.c-info-color-100 {
+  color: #D2F2FD;
+}
+.c-info-color-200 {
+  color: #A7E2FC;
+}
+.c-info-color-300 {
+  color: #79CBF8;
+}
+.c-info-color-400 {
+  color: #55B3F3;
+}
+.c-info-color-500 {
+  color: #208FED;
+}
+.c-info-color-600 {
+  color: #176FCB;
+}
+.c-info-color-700 {
+  color: #0D53A9;
+}
+.c-info-color-800 {
+  color: #073A89;
+}
+.c-info-color-900 {
+  color: #062971;
+}
+
+.c-error-color-600 {
+  color: #D01526;
+}
+
+.c-text-color-100 {
+  color: #282828;
+}
+.c-text-color-87 {
+  color: rgba(40, 40, 40, 0.87);
+}
+.c-text-color-60 {
+  color: rgba(40, 40, 40, 0.6);
+}
+.c-text-color-38 {
+  color: rgba(40, 40, 40, 0.38);
+}
+.c-text-color-28 {
+  color: rgba(40, 40, 40, 0.28);
+}
+.c-text-color-white {
+  color: #FFFFFF;
+}
+
+.c-heading-h1 {
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 125%;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}
+.c-heading-h2 {
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 125%;
+  /* identical to box height, or 35px */
+
+  font-feature-settings: 'tnum' on, 'lnum' on;
+
+  /* TextColor/100% */
+}
+.c-heading-h3 {
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 125%;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+  color: #282828;
+}
+.c-heading-h4 {
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 125%;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}
+.c-heading-h5 {
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 125%;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}
+
+.c-content-title {
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 140%;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}
+.c-content-subtitle {
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}
+.c-content-body {
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}
+.c-content-body-bold {
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 140%;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}
+.c-content-caption {
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}
+.c-content-small {
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}
+
+.c-button-sm {
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}
+.c-button-md {
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}
+
+.c-button-lg {
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 23px;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}
+
+.c-helper-text {
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}
+
+.c-helper-text-lg {
+  font-family: $primary-font-family;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.c-gray-white {
+  color: #FFFFFF;
+}
+.c-gray-50 {
+  color: #FAFAFA;
+}
+.c-gray-100 {
+  color: #F9F9F9;
+}
+.c-gray-200 {
+  color: #F4F4F4;
+}
+.c-gray-300 {
+  color: #E0DFDF;
+}
+.c-gray-400 {
+  color: #C1C0C0;
+}
+.c-gray-500 {
+  color: #B1B3B5;
+}
+.c-gray-600 {
+  color: #9EA0A2;
+}
+.c-gray-700 {
+  color: #87898C;
+}
+.c-gray-800{
+  color: #575757;
+}
+.c-gray-900 {
+  color: #3B4044;
+}
+
+.c-bgcolor-gray-white {
+  background-color: #FFFFFF;
+}
+.c-gray-bgcolor-50 {
+  background-color: #F7F7F9;
+}
+.c-gray-bgcolor-100 {
+  background-color: #EDEDEE;
+}
+.c-gray-bgcolor-200 {
+  background-color: #F5F5F5;
+}
+
+.c-icon {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.c-dotted-border {
+  border: none;
+  border: 2px dotted #0C3176;
+  color: #000;
+  background-color: #fff;
+}
+
+.c-record-table {
+  .q-table__top,
+  thead tr:first-child th{
+    background-color: #EDEDEE
+  }
+}
+
+.c-outline-radius{
+  border: 2px solid rgba(12, 49, 118, 0.1);
+  border-radius: 12px;
+}
+
+.q-item{
+  border-radius: 0px 8px 8px 0px !important; 
+}

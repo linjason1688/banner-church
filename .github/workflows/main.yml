@@ -1,0 +1,102 @@
+name: Auto CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+  DEPLOY_AUTH_TOKEN: ${{ secrets.DEPLOY_AUTH_TOKEN }}
+
+jobs:
+  iis-deploy-api:
+    name: iis-deploy-api
+    runs-on: [self-hosted, windows]
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.0.x'
+          include-prerelease: true
+      - run: cd ./Ap && dotnet restore
+      - run: cd ./Ap && dotnet publish -c release -o /tmp/app/ --no-restore
+      - name: Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.2
+        with:
+          server: 119.14.168.195
+          username: AllenBackUp
+          password: ${{ secrets.ftp_password }}
+          server-dir: ./gamma/
+          local-dir: /tmp/app/
+          exclude: |
+            *.pdb
+
+  iis-deploy-app:
+    name: iis-deploy-app
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: cd ./Web && npm install -g yarn @quasar/cli
+      - run: cd ./Web/banner-client && yarn
+      - run: cd ./Web/banner-client && NODE_ENV=staging quasar build
+      - name: Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.2
+        with:
+          server: 119.14.168.195
+          username: AllenBackUp
+          password: ${{ secrets.ftp_password }}
+          server-dir: ./banner-app/
+          local-dir: ./Web/banner-client/dist/spa/
+
+  iis-deploy-admin:
+    name: iis-deploy-admin
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: cd ./Web && npm install -g yarn @quasar/cli
+      - run: cd ./Web/banner-admin && yarn
+      - run: cd ./Web/banner-admin && NODE_ENV=staging quasar build  
+      - name: Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.2
+        with:
+          server: 119.14.168.195
+          username: AllenBackUp
+          password: ${{ secrets.ftp_password }}
+          server-dir: ./gamma/wwwroot/
+          local-dir: ./Web/banner-admin/dist/spa/
+
+  update-apis:
+    name: update-apis
+    needs: iis-deploy-api
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm install -g prettier
+      - run: git config --global user.email "twkoci@gmail.com"
+      - run: git config --global user.name "wusung"
+      - run: cd ./Web/banner-client && chmod +x ./gen-api.sh && ./gen-api.sh https://gamma.jetsion.com
+      - run: cd ./Web/banner-admin && chmod +x ./gen-api.sh && ./gen-api.sh https://gamma.jetsion.com
+      - run: git add -A
+      - run: git diff-index --quiet HEAD || git commit -m "update apis" --no-verify
+      - run: git push origin main

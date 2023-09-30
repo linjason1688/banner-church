@@ -1,0 +1,6 @@
+{
+  "/api": {
+    "target": "https://banner.tk",
+    "changeOrigin": true
+  }
+}

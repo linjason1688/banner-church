@@ -1,0 +1,19 @@
+{
+  "extends": "@quasar/app/tsconfig-preset",
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "plugins": [
+      {
+        "name": "ts-vue-plugin"
+      }
+    ],
+    "baseUrl": ".",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "useDefineForClassFields": true,
+    "types": [
+      "node",
+      "webpack-env"
+    ]
+  }
+}

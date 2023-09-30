@@ -1,0 +1,17 @@
+export enum SystemConfig {
+  CountryCode = "CountryCode",
+  CityCode = "CityCode",
+  Zip = "Zip",
+  ChurchNameList = "ChurchNameList",
+  EduType = "EduType",
+  CareType = "CareType",
+  MeetAttendanceType = "MeetAttendanceType",
+  RelativeType = "RelativeType",
+  CareIdentityType = "CareIdentityType",
+  MinistryRespUserStatus = "MinistryRespUserStatus",
+  QuestionnaireType = "QuestionnaireType",
+  JobType = "JobType",
+  AttendanceType = "AttendanceType",
+  MinistryDefStatus = "MinistryDefStatus",
+  JoinDate = "JoinDate",
+}

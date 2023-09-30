@@ -1,0 +1,8 @@
+{
+  "autoFormat": "onSave",
+  "quoteMark": "double",
+  "wrappingStyle": {
+    "maxBindingNamesPerLine": 1
+  },
+  "maxLineLength": 120
+}

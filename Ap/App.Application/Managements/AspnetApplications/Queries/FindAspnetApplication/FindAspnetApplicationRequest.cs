@@ -1,0 +1,76 @@
+#region
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Threading;
+using System.Threading.Tasks;
+using App.Application.Common.Attributes;
+using App.Application.Common.Dtos;
+using App.Application.Common.Extensions;
+using App.Application.Common.Interfaces;
+using App.Application.Common.Interfaces.Services;
+using App.Application.Managements.AspnetApplications.Dtos;
+using App.Domain.Constants;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using MediatR;
+using Microsoft.Extensions.Logging;
+using Yozian.Extension.Pagination;
+
+#endregion
+
+namespace App.Application.Managements.AspnetApplications.Queries.FindAspnetApplication
+{
+    /// <summary>
+    /// 取得  AspnetApplication 單筆明細
+    /// </summary>
+
+    public class FindAspnetApplicationRequest 
+        : IRequest<AspnetApplicationView>
+    {
+    
+        public long Id { get; set; }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public class FindAspnetApplicationRequestHandler 
+        : IRequestHandler<FindAspnetApplicationRequest, AspnetApplicationView>
+    {
+        private readonly IMapper mapper;
+        private readonly IAppDbContext appDbContext;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public FindAspnetApplicationRequestHandler(
+            IMapper mapper,
+            IAppDbContext appDbContext
+        )
+        {
+            this.mapper = mapper;
+            this.appDbContext = appDbContext;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        
+        
+        /// <returns></returns>
+        public async Task<AspnetApplicationView> Handle(
+            FindAspnetApplicationRequest request,
+            CancellationToken cancellationToken
+        )
+        {
+            return await this.appDbContext
+               .AspnetApplications
+               //.Where(e => e.Id == request.Id)
+               .ProjectTo<AspnetApplicationView>(this.mapper.ConfigurationProvider)
+               .FindOneAsync(cancellationToken);
+        }
+    }
+}

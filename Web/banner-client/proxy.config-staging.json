@@ -1,0 +1,6 @@
+{
+  "/api": {
+    "target": "https://gamma.jetsion.com",
+    "changeOrigin": true
+  }
+}

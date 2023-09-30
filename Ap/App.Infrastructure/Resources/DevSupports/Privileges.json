@@ -1,0 +1,23 @@
+﻿{
+  "linkType": "Root",
+  "nodes": [
+    {
+      "parentFunctionId": null,
+      "functionId": "CR0100",
+      "name": "角色管理",
+      "sort": 1,
+      "linkType": "Link",
+      "comment": "",
+      "nodes": []
+    },
+    {
+      "parentFunctionId": null,
+      "functionId": "CR0104",
+      "name": "角色權限管理",
+      "sort": 2,
+      "linkType": "Link",
+      "comment": "",
+      "nodes": []
+    }
+  ]
+}

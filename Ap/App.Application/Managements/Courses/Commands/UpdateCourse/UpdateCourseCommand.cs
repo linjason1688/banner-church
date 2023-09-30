@@ -1,0 +1,78 @@
+#region
+
+using System;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using System.Threading;
+using System.Threading.Tasks;
+using App.Application.Common.Attributes;
+using App.Application.Common.Extensions;
+using App.Application.Common.Interfaces;
+using App.Application.Common.Interfaces.Services;
+using App.Application.Managements.CourseManagementFilters.Commands.UpdateCourseManagementFilter;
+using App.Application.Managements.Courses.Dtos;
+using App.Domain.Constants;
+using App.Domain.Entities.Core;
+using App.Domain.Entities.Features;
+using AutoMapper;
+using MediatR;
+using Microsoft.Extensions.Logging;
+
+#endregion
+
+namespace App.Application.Managements.Courses.Commands.UpdateCourse
+{
+    /// <summary>
+    /// 更新  Course
+    /// </summary>
+
+    public class UpdateCourseCommand : CourseBase,IRequest<CourseView>
+    {
+        /// <summary>
+        /// 課程過濾主檔
+        /// </summary>
+        public UpdateCourseManagementFilterCommand CourseManagementFilter { get; set; }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public class UpdateCourseCommandHandler : IRequestHandler<UpdateCourseCommand, CourseView>
+    {
+        private readonly IMapper mapper;
+        private readonly IAppDbContext appDbContext;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public UpdateCourseCommandHandler(
+            IMapper mapper,
+            IAppDbContext appDbContext
+        )
+        {
+            this.mapper = mapper;
+            this.appDbContext = appDbContext;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public async Task<CourseView> Handle(
+            UpdateCourseCommand command,
+            CancellationToken cancellationToken
+        )
+        {
+            var entity = await this.appDbContext.Courses.FindOneAsync(
+                e => e.Id == command.Id,
+                cancellationToken
+            );
+
+            entity = this.mapper.Map(command, entity);
+
+            await this.appDbContext.SaveChangesAsync(cancellationToken);
+
+            return this.mapper.Map<CourseView>(entity);
+        }
+    }
+}

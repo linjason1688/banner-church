@@ -1,0 +1,70 @@
+#region
+
+using System;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using System.Threading;
+using System.Threading.Tasks;
+using App.Application.Common.Attributes;
+using App.Application.Common.Interfaces;
+using App.Application.Common.Interfaces.Services;
+using App.Application.Managements.VwMemberMinisters.Dtos;
+using App.Domain.Constants;
+using App.Domain.Entities.Core;
+using App.Domain.Entities.Features;
+using AutoMapper;
+using MediatR;
+using Microsoft.Extensions.Logging;
+
+#endregion
+
+namespace App.Application.Managements.VwMemberMinisters.Commands.CreateVwMemberMinister
+{
+    /// <summary>
+    /// 建立 VwMemberMinister
+    /// </summary>
+
+    public class CreateVwMemberMinisterCommand :  VwMemberMinisterBase, IRequest<VwMemberMinisterView>
+    {
+        
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public class CreateVwMemberMinisterCommandHandler : IRequestHandler<CreateVwMemberMinisterCommand, VwMemberMinisterView>
+    {
+        private readonly IMapper mapper;
+        private readonly IAppDbContext appDbContext;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public CreateVwMemberMinisterCommandHandler(
+            IMapper mapper,
+            IAppDbContext appDbContext
+)
+        {
+            this.mapper = mapper;
+            this.appDbContext = appDbContext;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public async Task<VwMemberMinisterView> Handle(
+            CreateVwMemberMinisterCommand command,
+            CancellationToken cancellationToken
+        )
+        {
+            var entity = this.mapper.Map<VwMemberMinister>(command);
+
+            await this.appDbContext.VwMemberMinisters.AddAsync(entity, cancellationToken);
+
+            await this.appDbContext.SaveChangesAsync(cancellationToken);
+
+            return this.mapper.Map<VwMemberMinisterView>(entity);
+        }
+    }
+}

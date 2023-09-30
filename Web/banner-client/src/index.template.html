@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= productName %>
+  </title>
+  <meta env="<%=process.env.env%>" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="zh-tw" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport"
+    content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width<% if (ctx.mode.cordova || ctx.mode.capacitor) { %>, viewport-fit=cover<% } %>" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <meta name="description" content="<%= productDescription %>" />
+  <meta name="keywords" content="旌旗，教會，首頁，台中，旌旗教會，修哥，台中旌旗，banner church，" />
+  <meta name="title" content="全球旌旗資訊網" />
+  <meta property="og:url" content="https://www.bannerch.org/" />
+  <meta property="og:title" content="全球旌旗資訊網" />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" href="/icon.svg" />
+
+  <style>
+    html {
+      overflow-y: scroll;
+    }
+
+    body {
+      overflow-y: hidden;
+    }
+
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- DO NOT touch the following DIV -->
+  <div id="q-app"></div>
+</body>
+
+</html>
